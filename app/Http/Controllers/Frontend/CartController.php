@@ -29,17 +29,14 @@ class CartController extends Controller
     }
     public function getAddCart($id)
     {
-        if (Auth::check()) {
-            $product = Product::find($id);
-            if ($product->promotion_price != 0) {
-                Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->promotion_price, 'options' => ['img' => $product->image]]);
-            } else {
-                Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->unit_price, 'options' => ['img' => $product->image]]);
-            }
-            return back();
+        $product = Product::find($id);
+        if ($product->promotion_price != 0) {
+            Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->promotion_price, 'options' => ['img' => $product->image]]);
         } else {
-            return redirect()->route('getLogin')->with('login_cart', 'Vui lòng đăng nhập để mua hàng');
+            Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->unit_price, 'options' => ['img' => $product->image]]);
         }
+        return back();
+
     }
     public function getDelCart($id)
     {
@@ -56,15 +53,14 @@ class CartController extends Controller
     }
     public function BuyCart(Request  $request, CustomerRequest $req)
     {
-
-
-        $cartInfor = Cart::content();
+        if (Auth::check()) {
+            $cartInfor = Cart::content();
 
         $customer = new Customer;
-        $customer->name = ucwords($request->name);
-        $customer->email = $request->email;
-        $customer->phonenumber = $request->phone;
-        $customer->address = $request->address;
+        $customer->name = ucwords($request->old('name'));
+        $customer->email = $request->old('email');
+        $customer->phonenumber = $request->old('phone');
+        $customer->address = $request->old('address');
         $customer->save();
 
 
@@ -106,7 +102,7 @@ class CartController extends Controller
             $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
-            $mail->setFrom('luongbaotin@gmail.com', 'Đặc sản Phú Yên');
+            $mail->setFrom('luongbaotin2020@gmail.com', 'Đặc sản Phú Yên');
             $mail->addAddress($email);     // Add a recipient
             $mail->addCC('luongbaotin2020@gmail.com');
             $mail->CharSet = 'UTF-8';
@@ -141,6 +137,11 @@ class CartController extends Controller
         // }
         Cart::destroy();
         return redirect()->route('getComplete');
+        } else {
+            return redirect()->route('getLogin')->with('login_cart', 'Vui lòng đăng nhập để mua hàng');
+        }
+
+
     }
 
     public function getComplete()

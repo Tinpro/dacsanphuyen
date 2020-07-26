@@ -53,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 @csrf
                 <input type="email" class="ggg" name="email" placeholder="E-MAIL">
                 <input type="submit" value="Xác nhận email">
+                <p>Quay lại trang <a href="{{route('getLogin')}}">Đăng nhập</a></p>
             </form>
 
         </div>

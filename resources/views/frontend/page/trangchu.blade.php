@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="beta-products-list">
-                        <h4>Sản phẩm mới</h4>
+                        <h4>Sản phẩm mới nhất</h4>
                         <div class="beta-products-details">
                             <p class="pull-left">Tìm thấy {{count($product_new)}} sản phẩm</p>
                             <div class="clearfix"></div>

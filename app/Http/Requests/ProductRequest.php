@@ -30,7 +30,7 @@ class ProductRequest extends FormRequest
             'status' => 'required|regex:/^[0-1]$/',
             'unit' => 'required|max:100',
             'featured' => 'required|regex:/^[0-1]$/',
-            'name' => 'bail|required|regex:/^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/|max:100',
+            'name' => 'bail|required|unique:products|regex:/^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/|max:100',
 
 
         ];
@@ -50,6 +50,7 @@ class ProductRequest extends FormRequest
             'featured.regex' => 'Chỉ nhập 0 hoặc 1',
 
             'name.required' => 'Vui lòng nhập tên sản phẩm',
+            'name.unique'=> 'Têm sản phẩm đã tồn tại',
             'name.regex' => 'Tên chỉ bao gồm chữ cái, khoảng trống và dấu câu',
             'name.max' => 'Tên tối đa 100 ký tự',
 

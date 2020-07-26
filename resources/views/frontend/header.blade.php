@@ -43,7 +43,6 @@
                         <button class="fa fa-search" type="submit" id="searchsubmit"></button>
                     </form>
                 </div>
-                @if(Auth::check())
                 <div class="beta-comp">
                     <div class="cart">
                         <div><a href="{{route('getCartDetail')}}"><i class="fa fa-shopping-cart"></i>
@@ -55,7 +54,6 @@
                             </a></div>
                     </div> <!-- .cart -->
                 </div>
-                @endif
             </div>
             <div class="clearfix"></div>
         </div> <!-- .container -->

@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="{{$user->email}}">
+                            <input type="email" name="email" readonly class="form-control" id="exampleInputEmail1" value="{{$user->email}}">
                             @if ($errors->has('email'))
                             <p class="text-danger">{{ $errors->first('email') }}</p>
                             @endif

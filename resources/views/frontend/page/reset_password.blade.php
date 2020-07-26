@@ -51,7 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <p class="text-danger">{{$errors->first('renewpassword')}}</p>
                 @endif
                 <div class="clearfix"></div>
+                <p>Quay lại trang <a href="{{route('getLogin')}}">Đăng nhập</a></p>
                 <input type="submit" value="Xác nhận">
+
             </form>
         </div>
     </div>

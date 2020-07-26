@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +39,7 @@ class UserController extends Controller
         $user['user'] = User::find($id);
         return view('backend.user.edit', $user);
     }
-    public function postEditUser(Request $request, $id, RegisterRequest $req)
+    public function postEditUser(Request $request, $id, UserRequest $req)
     {
         $user = User::find($id);
         $user->name = $request->name;

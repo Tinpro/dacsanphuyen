@@ -63,28 +63,28 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
                     @if ($errors->has('email'))
                     <p class="text-danger">{{ $errors->first('email') }}</p>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="name">Họ và tên:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name"  value="{{old('name')}}">
                     @if ($errors->has('name'))
                     <p class="text-danger">{{ $errors->first('name') }}</p>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="phone">Số điện thoại:</label>
-                    <input type="number" class="form-control" id="phone" name="phone">
+                    <input type="number" class="form-control" id="phone" name="phone" value="{{old('phone')}}">
                     @if ($errors->has('phone'))
                     <p class="text-danger">{{ $errors->first('phone') }}</p>
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="add">Địa chỉ:</label>
-                    <input type="text" class="form-control" id="add" name="address">
+                    <input type="text" class="form-control" id="add" name="address" value="{{old('address')}}">
                     @if ($errors->has('address'))
                     <p class="text-danger">{{ $errors->first('address') }}</p>
                     @endif
