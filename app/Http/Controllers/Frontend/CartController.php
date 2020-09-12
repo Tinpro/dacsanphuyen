@@ -56,11 +56,11 @@ class CartController extends Controller
         if (Auth::check()) {
             $cartInfor = Cart::content();
 
-        $customer = new Customer;
-        $customer->name = ucwords($request->old('name'));
-        $customer->email = $request->old('email');
-        $customer->phonenumber = $request->old('phone');
-        $customer->address = $request->old('address');
+        $customer = new Customer();
+        $customer->name = ucwords($request->name);
+        $customer->email = $request->email;
+        $customer->phonenumber = $request->phone;
+        $customer->address = $request->address;
         $customer->save();
 
 
@@ -97,7 +97,7 @@ class CartController extends Controller
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'luongbaotin2020@gmail.com';                     // SMTP username
-            $mail->Password   = 'Tinyeuthao123';                               // SMTP password
+            $mail->Password   = '01652681628Tinpro123';                               // SMTP password
             $mail->SMTPSecure =  'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 

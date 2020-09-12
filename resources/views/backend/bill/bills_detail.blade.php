@@ -26,7 +26,7 @@
                     @foreach($bill_detail as $bd)
                     <tr>
                         <td>#{{$bd->id_bill ?? 'no bill'}}</td>
-                        <td>{{$bd->bill->customer->name ?? 'no bill'}}</td>
+                        <td>{{$bd->bill->customer->name ?? 'no'}}</td>
                         <td>{{$bd->product->name ??'no product'}}</td>
                         <td><img src="uploads/products/{{$bd->product->image}}" height="100" width="100"></td>
                         <td>{{$bd->quantity}}</td>

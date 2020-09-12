@@ -34,13 +34,16 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('addcart/{id}', 'CartController@getAddCart')->name('getAddCart');
         Route::get('delcart/{id})', 'CartController@getDelCart')->name('getDelCart');
         Route::get('update', 'CartController@updateCart')->name('updateCart');
-        Route::post('buycart', 'CartController@BuyCart')->name('BuyCart');
+        Route::group(['prefix' => 'buy','middleware'=>'CheckBuy'], function () {
+            Route::post('buycart', 'CartController@BuyCart')->name('BuyCart');
+        });
+
         Route::get('complete', 'CartController@getComplete')->name('getComplete');
         Route::get('tim-kiem', 'PageController@getTimkiem')->name('timkiem');
-        Route::get('/form','ForgotController@getForgot')->name('getForgot');
-        Route::post('/form','ForgotController@postForgot')->name('postForgot');
-        Route::get('resetpassword','ForgotController@getResetPassword')->name('getResetPassword');
-        Route::post('resetpassword','ForgotController@postResetPassword')->name('postResetPassword');
+        Route::get('/form', 'ForgotController@getForgot')->name('getForgot');
+        Route::post('/form', 'ForgotController@postForgot')->name('postForgot');
+        Route::get('resetpassword', 'ForgotController@getResetPassword')->name('getResetPassword');
+        Route::post('resetpassword', 'ForgotController@postResetPassword')->name('postResetPassword');
     });
 });
 
@@ -67,7 +70,7 @@ Route::group(['namespace' => 'Backend'], function () {
             Route::get('/delete/{id}', 'ProductController@getDeleteProd')->name('getDeleteProd');
             Route::get('/trashprod', 'ProductController@getTrashProd')->name('getTrashProd');
             Route::get('/restore/{id}', 'ProductController@restoreProd')->name('restoreProd');
-            Route::get('searchprod','ProductController@getSearch')->name('getSearch');
+            Route::get('searchprod', 'ProductController@getSearch')->name('getSearch');
         });
         Route::group(['prefix' => 'user'], function () {
             Route::get('/user', 'UserController@getDisplayUser')->name('getDisplayUser');
@@ -78,7 +81,7 @@ Route::group(['namespace' => 'Backend'], function () {
             Route::get('/delete/{id}', 'UserController@postDeleteUser')->name('getDeleteUser');
             Route::get('/trashuser', 'UserController@getTrashUser')->name('getTrashUser');
             Route::get('/restore/{id}', 'UserController@restore')->name('restoreUser');
-            Route::get('searchus','UserController@getSearchUser')->name('getSearchUser');
+            Route::get('searchus', 'UserController@getSearchUser')->name('getSearchUser');
         });
         Route::group(['prefix' => 'bill'], function () {
             Route::get('customer/{id}', 'BillController@getCustomer')->name('getCustomer');

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckBuy;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'CheckLogedOut' => \App\Http\Middleware\CheckLogedOut::class,
         'CheckLogedInFrontend' => \App\Http\Middleware\CheckLogedInFrontend::class,
         'CheckLogedOutFrontend' => \App\Http\Middleware\CheckLogedOutFrontend::class,
+        'CheckBuy' => \App\Http\Middleware\CheckBuy::class
 
     ];
 

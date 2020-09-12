@@ -9,12 +9,12 @@
             </header>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" method="post" action="{{route('postEditCate',$category->id)}}">
+                    <form role="form" method="post" action="" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên loại</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$category->name}}">
-                            @if ($errors->has('update_name'))
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{old('name',isset($category->name) ? $category->name:'') }}">
+                            @if ($errors->has('name'))
                             <p class="text-danger">{{ $errors->first('name') }}</p>
                             @endif
                         </div>

@@ -1,12 +1,12 @@
 @extends('backend.master')
-@section('title', 'Danh mục sản phẩm')
+@section('title', 'Sản phẩm')
 @section('content')
 
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Cập nhật danh mục sản phẩm
+                Cập nhật sản phẩm
             </header>
             <div class="panel-body">
                 <div class="position-center">
@@ -14,7 +14,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên sản phẩm</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$product->name}}">
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{old('name',isset($product->name) ? $product->name : '')}}">
                             @if ($errors->has('name'))
                             <p class="text-danger">{{ $errors->first('name') }}</p>
                             @endif

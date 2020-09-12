@@ -4,8 +4,8 @@
 <script type="text/javascript">
     function updateCart(qty, rowId) {
         $.get('{{route('updateCart')}}', {
-                qty: qty
-                , rowId: rowId
+                qty: qty,
+                rowId: rowId,
             }
             , function() {
                 location.reload();
@@ -14,7 +14,7 @@
     }
 
 </script>
-<div class="">
+<div class="container">
     <div id="content">
         <div id="list-cart">
             <h3>Giỏ hàng</h3>
@@ -63,7 +63,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
+                    <input type="email" class="form-control" id="email" name="email"  value="{{old('email')}}">
                     @if ($errors->has('email'))
                     <p class="text-danger">{{ $errors->first('email') }}</p>
                     @endif

@@ -12,6 +12,6 @@ class Customer extends Model
 
     public function bill()
     {
-        return $this->hasMany('App\Models\Bill', 'id_customer', 'id');
+        return $this->hasMany('App\Models\Bill', 'id', 'id_customer');
     }
 }

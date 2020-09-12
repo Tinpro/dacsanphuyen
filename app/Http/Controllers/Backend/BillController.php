@@ -21,7 +21,7 @@ class BillController extends Controller
     public function getCustomer($id)
     {
         $customer = Customer::find($id);
-        return view('backend.bill.customer', ['customer' => $customer]);
+        return view('backend.bill.customer', compact('customer'));
     }
     public function getBillDetail($id)
     {

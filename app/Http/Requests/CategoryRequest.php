@@ -25,16 +25,17 @@ class CategoryRequest extends FormRequest
     {
         return [
             //
-            'name' => 'bail|required|unique:categories|regex:/^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/|max:100',
+            'name' => 'required|regex:/^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$/|max:100|unique:categories,name,' . $this->id,
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập tên loại sản phẩm',
-            'name.unique'=> 'Têm loại sản phẩm đã tồn tại',
-            'name.regex' => 'Tên chỉ bao gồm chữ, khoảng trống và dấu câu',
-            'name.max' => 'Tên tối đa 100 ký tự'
+            'name.required' => 'Vui lòng nhập tên danh mục',
+            'name.unique' => 'Tên danh mục tồn tại',
+            'name.regex' => 'Tên chỉ bao gồm chữ cái, khoảng trống và dấu câu',
+            'name.max' => 'Tên tối đa 100 ký tự',
+
         ];
     }
 }

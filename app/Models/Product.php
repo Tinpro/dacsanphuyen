@@ -9,6 +9,9 @@ class Product extends Model
     use SoftDeletes;
     //
     protected $table = "products";
+    protected $promaryKey = "id";
+    protected $guarded = [];
+   
     protected $dates = ['deleted_at'];
     public function category()
     {

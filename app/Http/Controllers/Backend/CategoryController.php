@@ -29,10 +29,10 @@ class CategoryController extends Controller
     }
     public function getEditCate($id)
     {
-        $category['category'] = Category::find($id);
-        return view('backend.category.edit', $category);
+        $category = Category::find($id);
+        return view('backend.category.edit', compact('category'));
     }
-    public function postEditCate(Request $request, CategoryRequest $rq, $id)
+    public function postEditCate(Request $request, CategoryRequest $req, $id)
     {
         $category = Category::find($id);
         $category->name = $request->name;
